@@ -1,0 +1,64 @@
+# System
+.DS_Store
+
+# IDEA
+.vscode
+.idea
+
+# packages
+yarn.lock
+package-lock.json
+node_modules
+bower_components
+
+# build
+dist
+
+# tmp
+uploads
+
+# logs
+logs
+*.log
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+#deploy
+deploy
+node_modules
+web/.DS_Store
+web/.DS_Store
+.DS_Store
+
+# System
+.DS_Store
+
+# IDEA
+.vscode
+.idea
+
+# packages
+yarn.lock
+package-lock.json
+node_modules
+bower_components
+
+# build
+dist
+
+# tmp
+uploads
+
+# logs
+logs
+*.log
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+#config
+**/proxy.conf
+
+#deploy
+deploy
