@@ -1,6 +1,6 @@
 **# ESLint-plugins-imports-sorter**
 
-\> 用于校验代码中通过``import``引入资源顺序的ESLint插件。
+> 用于校验代码中通过``import``引入资源顺序的ESLint插件。
 
 
 
