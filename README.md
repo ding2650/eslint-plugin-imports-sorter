@@ -13,21 +13,28 @@ npm install -d eslint-plugin-imports-sorter
 
 2、配置插件
 
-```js
+```ts
 // 当前项目中的eslint配置文件：.eslintrc.js
-/* 支持的rule配置：[level，isNeedEmptyLine] */
-/* isNeedEmptyLine:{
-	type:booean,
-	desc:不同引入方式之间是否需要换行分割
-} */
+/* 支持的rule配置：[level，isNeedEmptyLine, isCheckDeepth] */
+/* 
+	isNeedEmptyLine:{
+		type:booean,
+		desc:不同引入方式之间是否需要换行分割
+	}
+	isCheckDeepth:{
+		type:boolean,
+		desc:是否需要校验层级
+	} 
+	*/
 module.exports = {
   extends:[
 		/* your extends */
 		'plugin:imports-sorter/recommended'
 	],
+	/* 如果需要自定义配置 */
 	rules:[
-		/* your rules */
-    'imports-sorter/sorter': [2, true],
+		/* your rules config */
+    'imports-sorter/sorter': [2, false,false],
 	]
 }
 
@@ -62,5 +69,4 @@ import CC from './C2/C/CC/CCC'
 
 5、TodoList
 - ts编译
-- 添加层级校验自定义配置
 - 添加自定义权重匹配规则
