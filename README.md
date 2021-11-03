@@ -15,17 +15,24 @@ npm install -d eslint-plugin-imports-sorter
 
 ```ts
 // 当前项目中的eslint配置文件：.eslintrc.js
-/* 支持的rule配置：[level，isNeedEmptyLine, isCheckDeepth] */
-/* 
-	isNeedEmptyLine:{
-		type:booean,
-		desc:不同引入方式之间是否需要换行分割
-	}
-	isCheckDeepth:{
-		type:boolean,
-		desc:是否需要校验层级
-	} 
+/* 支持的rule配置：[level，config] */
+interface Config {
+  /* 
+		不同引入方式换行分割
+    默认: true
 	*/
+  isCheckEmptyLine: boolean
+  /* 
+		校验层级
+    默认: false
+	*/
+  isCheckDeepth: boolean
+  /* 
+    绝对路径别名
+    默认: ['src','@']
+  */
+  alias: Array<string>
+}
 module.exports = {
   extends:[
 		/* your extends */
@@ -34,7 +41,11 @@ module.exports = {
 	/* 如果需要自定义配置 */
 	rules:[
 		/* your rules config */
-    'imports-sorter/sorter': [2, false,false],
+    'imports-sorter/sorter': [2, {
+				isCheckEmptyLine:true,
+				isCheckDeepth:true,
+ 				alias: ['src','lib','@'],
+		}],
 	]
 }
 
@@ -46,7 +57,7 @@ mac：``command + shift + p``，搜索``reload window``
 
 4、说明
 
-- 由于绝对路径和带层级的第三方库无法区分，比如 'loadsh/omit' 和'src/utils' 因此，目前暂时约定绝对路径均为'src/xxx' 或者'@/xxx'形式。
+- 由于绝对路径和带层级的第三方库无法区分，比如 'loadsh/omit' 和'src/utils' 因此，对于绝对路径资源的判定，取决于``alias``中的值。
 
 - 目前支持三类权重的比对：第三方库 >  绝对路径引入的资源 > 相对路径引用的资源。权重相等的情况下，会比对层级进行排序。
 
@@ -67,6 +78,3 @@ import CC from './C2/C/CC/CCC'
 
 - 校验React类型文件中React引入是否置顶。@sdx
 
-5、TodoList
-- ts编译
-- 添加自定义权重匹配规则
