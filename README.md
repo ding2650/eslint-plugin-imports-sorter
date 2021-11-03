@@ -28,16 +28,16 @@ interface Config {
 ```ts
 module.exports = {
   extends:['...','plugin:imports-sorter/recommended'],
-	rules:[
-		'...',
-   'imports-sorter/sorter': [
-      2,
-      {
-        isCheckEmptyLine: true,
-        isCheckDeepth: true,
-        alias: ['src', 'lib', '@'],
-      },
-    ],
+  rules:[
+    '...',
+    'imports-sorter/sorter': [
+       2,
+       {
+         isCheckEmptyLine: true,
+         isCheckDeepth: true,
+         alias: ['src', 'lib', '@'],
+       },
+     ],
 	]
 }
 ```
