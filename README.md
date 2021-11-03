@@ -17,38 +17,29 @@ npm install -d eslint-plugin-imports-sorter
 // 当前项目中的eslint配置文件：.eslintrc.js
 /* 支持的rule配置：[level，config] */
 interface Config {
-  /* 
-		不同引入方式换行分割
-    默认: true
-	*/
+  /* 不同引入方式换行分割:默认值true */
   isCheckEmptyLine: boolean
-  /* 
-		校验层级
-    默认: false
-	*/
+  /* 校验层级:默认值false */
   isCheckDeepth: boolean
-  /* 
-    绝对路径别名
-    默认: ['src','@']
-  */
+  /* 绝对路径别名:默认值['src','@'] */
   alias: Array<string>
 }
+```
+```ts
 module.exports = {
-  extends:[
-		/* your extends */
-		'plugin:imports-sorter/recommended'
-	],
-	/* 如果需要自定义配置 */
+  extends:['...','plugin:imports-sorter/recommended'],
 	rules:[
-		/* your rules config */
-    'imports-sorter/sorter': [2, {
-				isCheckEmptyLine:true,
-				isCheckDeepth:true,
- 				alias: ['src','lib','@'],
-		}],
+		'...',
+   'imports-sorter/sorter': [
+      2,
+      {
+        isCheckEmptyLine: true,
+        isCheckDeepth: true,
+        alias: ['src', 'lib', '@'],
+      },
+    ],
 	]
 }
-
 ```
 
 3、重新加载窗口
